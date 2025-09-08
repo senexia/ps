@@ -51,10 +51,8 @@ public class Main {
             for(int i = 0 ; i < 4 ; i++) {
                 int nx = x + dx[i];
                 int ny = y + dy[i];
-                if(nx < 0 || nx >= n || ny < 0 || ny >= m || v[nx][ny][t]) continue;
+                if(nx < 0 || nx >= n || ny < 0 || ny >= m || arr[nx][ny] == '#' || v[nx][ny][t]) continue;
                 //맵 밖이거나, 이미 방문했으면 continue
-                if(arr[nx][ny] == '#') continue;
-
                 if(arr[nx][ny] == '1') {
                     System.out.println(depth + 1);
                     return;
