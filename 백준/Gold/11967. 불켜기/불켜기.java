@@ -6,16 +6,11 @@ public class Main {
     static int[] dx = {-1, 0, 1, 0};
     static int[] dy = {0, 1, 0, -1};
     static ArrayDeque<int[]> q = new ArrayDeque<>();
-    static List<int[]> prop = new ArrayList<>();
     static List<int[]>[][] button;
     static boolean[][] v, light;
 
     static void propagation() {
         for(boolean[] vv : v) Arrays.fill(vv, false);
-//        for(int[] a : prop) {
-//            q.offer(a);
-//            v[a[0]][a[1]] = true;
-//        }
         q.offer(new int[] {0, 0});
     }
 
@@ -36,7 +31,6 @@ public class Main {
                     int by = a[1];
                     if(!light[bx][by]) {
                         light[bx][by] = true;
-                        prop.add(new int[] {bx, by});
                         cnt++;
                         pcnt++;
                     }
@@ -68,7 +62,6 @@ public class Main {
         v = new boolean[n][n];
         light = new boolean[n][n];
         cnt = 1;
-        prop.add(new int[] {0, 0});
 
         for(int i = 0 ; i < n ; i++) {
             for(int j = 0 ; j < n ; j++) {
